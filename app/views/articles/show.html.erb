@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<center><h2 style="font-weight:900; margin:0px 0px 40px 0px"><%= @article.title %></h2></center>
+<p><%= @article.published_at&.strftime("%Y年%-m月%-d日 %H時%M分") || "-" %></p>
+
+<p style="width:80%; margin:auto;"><%= @article.content %></p>
+
+<div style="margin: 60px 0px 60px 0px; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 10px;">
+  <%= link_to "← 一覧に戻る", articles_path %>
+
+  <%= button_to "この記事を削除する", @article, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+</div>

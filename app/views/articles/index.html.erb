@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+
+<div style="background-color: gray; padding: 60px; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+  <h1 style="color:white">スクレイピングアプリケーション</h1>
+  <%= render "form", article: Article.new %>
+</div>
+
+<table style="width: 70%;  margin-bottom: 20px; border: 1px solid #ddd; margin: auto; background-color: #f8f8f8; border-radius: 5px; overflow: hidden;">
+  <thead style="background-color: gray;">
+    <tr>
+      <th style="width:20%">タイトル</th>
+      <th style="width:20%">日時</th>
+      <th style="width:60%">本文</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td>
+          <%= link_to article.title.truncate(25), article_path(article), style:"font-weight:600px; font-size: 16px;" %>
+        </td>
+        <td><%= article.published_at&.strftime("%Y年%-m月%-d日 %H時%M分") || "-" %></td>
+        <td><%= article.content.truncate(150) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,20 @@
+<%= form_with(model: article, local: true) do |form| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <ul>
+        <% article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 10px; max-width: 600px; margin: auto; ">
+    <%= form.text_field :url, placeholder: "https://www3.nhk.or.jp/news/html/20240509/k10014444461000.html", style:"height:30px; width:400px; border:1px #0f0f0f solid;" %>
+    <div class="actions">
+      <%= form.submit "実行", style:"width:100px; background-color:white; color:black; border:1px #0f0f0f solid; height:50px" %>
+    </div>
+  </div>
+
+<% end %>
