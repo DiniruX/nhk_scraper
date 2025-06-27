@@ -87,4 +87,7 @@ Rails.application.configure do
   #
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  config.hosts << "nhk-scraper-db.c5wcg0igoaim.ap-southeast-2.rds.amazonaws.com"
+  config.require_master_key = true
 end
