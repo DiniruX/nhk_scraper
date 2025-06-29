@@ -84,6 +84,8 @@ production:
     database: nhk_scraper_production
     username: nhk_scraper
     password: <%= ENV["NHK_SCRAPER_DATABASE_PASSWORD"] %>
+    host: <%= ENV["NHK_SCRAPER_DATABASE_HOST"] %>
+    port: 5432
   cache:
     <<: *primary_production
     database: nhk_scraper_production_cache
